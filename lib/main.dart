@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Text Input App',
+      title: 'Sign In',
       home: TextInputScreen(),
     );
   }

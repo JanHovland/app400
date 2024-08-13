@@ -29,7 +29,7 @@ class _TextInputScreenState extends State<TextInputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Log in to the Database'),
+        title: const Text('Sign in'),
         centerTitle: true,
       ),
       body: Padding(
@@ -54,7 +54,7 @@ class _TextInputScreenState extends State<TextInputScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _submitStrings,
-              child: const Text('Log in'),
+              child: const Text('Sign in'),
             ),
             const SizedBox(height: 20),
             Text(
