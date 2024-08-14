@@ -17,6 +17,7 @@ class _TextInputScreenState extends State<TextInputScreen> {
 
   String _userName = "";
   String _passWord = "";
+  String _message = 'Hello, World!';
 
   void _submitStrings() {
     setState(() {
@@ -31,6 +32,26 @@ class _TextInputScreenState extends State<TextInputScreen> {
       appBar: AppBar(
         title: const Text('Sign in'),
         centerTitle: true,
+        leading: IconButton(
+            icon: const Icon(Icons.menu), // Replace with your desired icon
+            onPressed: () {
+              setState(() {
+                // Update the message when the icon is pressed
+                _message = 'Menu icon pressed!';
+              });
+            },
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search), // Icon on the right
+            onPressed: () {
+              setState(() {
+                // Update the message when the icon is pressed
+                _message = 'Search icon pressed!';
+              });
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -65,10 +86,13 @@ class _TextInputScreenState extends State<TextInputScreen> {
               'Password: $_passWord',
               style: const TextStyle(fontSize: 18),
             ),
+            Text(
+              _message,
+              style: const TextStyle(fontSize: 28),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
