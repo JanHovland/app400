@@ -18,7 +18,7 @@ class _TextInputScreenState extends State<TextInputScreen> {
 
   String _userName = "";
   String _passWord = "";
-  String _message = 'Hello, World!';
+  String _message = "";
 
   void _submitStrings() {
     setState(() {
@@ -33,7 +33,8 @@ class _TextInputScreenState extends State<TextInputScreen> {
       appBar: AppBar(
         title: const Text('Sign in'),
         centerTitle: true,
-        leading: IconButton(                  // icon at the left side
+        leading: IconButton(
+          // icon at the left side
           icon: const Icon(Icons.menu),
           onPressed: () {
             setState(() {
@@ -43,12 +44,38 @@ class _TextInputScreenState extends State<TextInputScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),   // Alle icons on the right
+            icon: const Icon(Icons.search), // Alle icons on the right
             onPressed: () {
-              setState(() {
-                _message = 'Search icon pressed!';
-              });
-            },
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Search Dialog'),
+                    content: Text('This is a earch dialog with actions.'),
+                    actions: [
+                      TextButton(
+                        child: Text('Cancel',
+                          style: const TextStyle(fontSize: 18,
+                          color: Colors.red),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      TextButton(
+                        child: Text('OK',
+                          style: const TextStyle(fontSize: 18,
+                          color: Colors.blue),
+                        ),
+                        onPressed: () {
+                          // Do something when OK is pressed
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );           },
           ),
         ],
       ),
