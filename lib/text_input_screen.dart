@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // https://www.youtube.com/watch?v=d0uith-LE3o
+// https://api.flutter.dev/flutter/material/MenuBar-class.html
 
 class TextInputScreen extends StatefulWidget {
   const TextInputScreen({super.key});
@@ -32,21 +33,19 @@ class _TextInputScreenState extends State<TextInputScreen> {
       appBar: AppBar(
         title: const Text('Sign in'),
         centerTitle: true,
-        leading: IconButton(
-            icon: const Icon(Icons.menu), // Replace with your desired icon
-            onPressed: () {
-              setState(() {
-                // Update the message when the icon is pressed
-                _message = 'Menu icon pressed!';
-              });
-            },
+        leading: IconButton(                  // icon at the left side
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            setState(() {
+              _message = 'Menu icon pressed!';
+            });
+          },
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search), // Icon on the right
+            icon: const Icon(Icons.search),   // Alle icons on the right
             onPressed: () {
               setState(() {
-                // Update the message when the icon is pressed
                 _message = 'Search icon pressed!';
               });
             },
